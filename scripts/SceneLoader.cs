@@ -72,4 +72,10 @@ public class SceneLoader : Singleton<SceneLoader>
         int currentBuildIndex = SceneManager.GetActiveScene().buildIndex;
         return currentBuildIndex;
     }
+
+    public string GetCurrentSceneName()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        return currentSceneName;
+    }
 }
