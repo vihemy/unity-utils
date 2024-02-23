@@ -18,6 +18,13 @@ public class SceneLoader : Singleton<SceneLoader>
         PerformTransition(nextSceneName);
     }
 
+    public void ReloadCurrentScene()
+    {
+        int currentSceneIndex = GetCurrentSceneBuildIndex();
+        string currentSceneName = NameOfSceneByBuildIndex(currentSceneIndex);
+        PerformTransition(currentSceneName);
+    }
+
     public void LoadSceneByIndex(int buildIndex)
     {
         string sceneName = NameOfSceneByBuildIndex(buildIndex);
