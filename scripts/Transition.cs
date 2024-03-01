@@ -53,8 +53,13 @@ public class Transition : MonoBehaviour
         var image = m_overlay.AddComponent<Image>();
         var rect = new Rect(0, 0, bgTex.width, bgTex.height);
         var sprite = Sprite.Create(bgTex, rect, new Vector2(0.5f, 0.5f), 1);
-        image.material.mainTexture = bgTex;
+
+        // Explicit material creation
+        Material fadeMaterial = new Material(Shader.Find("UI/Default"));
+        fadeMaterial.mainTexture = bgTex;
+        image.material = fadeMaterial;
         image.sprite = sprite;
+
         var newColor = image.color;
         image.color = newColor;
         image.canvasRenderer.SetAlpha(0.0f);
@@ -88,6 +93,10 @@ public class Transition : MonoBehaviour
 
         image.canvasRenderer.SetAlpha(0.0f);
         yield return new WaitForEndOfFrame();
+
+        // Dispose of the texture and material
+        Destroy(bgTex);
+        Destroy(fadeMaterial);
 
         Destroy(m_canvas);
     }
