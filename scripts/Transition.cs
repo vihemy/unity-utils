@@ -54,7 +54,7 @@ public class Transition : MonoBehaviour
         var rect = new Rect(0, 0, bgTex.width, bgTex.height);
         var sprite = Sprite.Create(bgTex, rect, new Vector2(0.5f, 0.5f), 1);
 
-        // Explicit material creation
+        // MODDED: Explicit material creation to avoid changing default material
         Material fadeMaterial = new Material(Shader.Find("UI/Default"));
         fadeMaterial.mainTexture = bgTex;
         image.material = fadeMaterial;
