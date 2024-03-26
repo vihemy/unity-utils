@@ -1,14 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HideCurser : MonoBehaviour
 {
-    [SerializeField] private bool isVisible;
+    [SerializeField] private bool showCurserInEditor = false;
+    [SerializeField] private bool showCurserInBuild = false;
     private void Awake()
     {
-        Cursor.visible = isVisible;
+        if (Application.isEditor)
+        {
+            // Code to run when the game is running in the editor
+            Cursor.visible = showCurserInEditor;
+        }
+        else
+        {
+            // Code to run when the game is running as an autonomous build
+            Cursor.visible = showCurserInBuild;
+        }
     }
-
 }
