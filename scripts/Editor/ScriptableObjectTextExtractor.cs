@@ -12,8 +12,7 @@ public class ScriptableObjectTextExtractor
     public static void ExtractTextsFromScriptableObjects()
     {
         StringBuilder csv = new StringBuilder();
-        // Update header to only include 'Path' and 'Field Content'
-        csv.AppendLine("Path;Field Content"); // Simplified Header for clarity
+        csv.AppendLine("Path;Field Content");
 
         List<Type> types = new List<Type> { typeof(UIData), typeof(IntroData), typeof(ResultData) }; // Ensure all types are included
 
